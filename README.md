@@ -1,6 +1,6 @@
 # hlt2lb
 A simple C program to format herbstluftwm's tag_status output for
-(lemonbar)[https://github.com/LemonBoy/bar].
+[lemonbar](https://github.com/LemonBoy/bar).
 
 This is By Me For Me code.
 
