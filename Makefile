@@ -1,5 +1,5 @@
-# ish makefile
-# 2021-07-27 19:21
+# hlt2lb makefile
+# 2021-09-11 18:30
 # by Ian D Brunton <iandbrunton at gmail dot com>
 
 APPNAME = hlt2lb
