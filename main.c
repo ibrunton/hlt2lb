@@ -16,6 +16,10 @@
 #include <stdlib.h>
 
 #define TAGSTATUS "herbstclient tag_status"
+#define EMPTY_TAG "%%{A:herbstclient use %c:} %c %%{A}"
+#define OCCUPIED_TAG "%%{A:herbstclient use %c:} %%{+o}%c%%{-o} %%{A}"
+#define FOCUSED_TAG "%%{A:herbstclient use %c:}%%{R} %c %%{R}%%{A}"
+#define URGENT_TAG "%%{A:herbstclient use %c:}%%{F%s} %c %%{F-}%%{A}"
 
 int main (int argc, char *argv[]) {
 	char *urgent = "#cd5666";
@@ -31,16 +35,16 @@ int main (int argc, char *argv[]) {
 	while (fscanf (pp, "%s", input) == 1) {
 		switch (input[0]) {
 			case '.':
-				printf ("%%{A:herbstclient use %c:} %c %%{A}", input[1], input[1]);
+				printf (EMPTY_TAG, input[1], input[1]);
 				break;
 			case ':':
-				printf ("%%{A:herbstclient use %c:} %%{+o}%c%%{-o} %%{A}", input[1], input[1]);
+				printf (OCCUPIED_TAG, input[1], input[1]);
 				break;
 			case '#':
-				printf ("%%{A:herbstclient use %c:}%%{R} %c %%{R}%%{A}", input[1], input[1]);
+				printf (FOCUSED_TAG, input[1], input[1]);
 				break;
 			case '!':
-				printf ("%%{A:herbstclient use %c:}%%{F%s} %c %%{F-}%%{A}", input[1], urgent, input[1]);
+				printf (URGENT_TAG, input[1], urgent, input[1]);
 				break;
 		}
 	}
